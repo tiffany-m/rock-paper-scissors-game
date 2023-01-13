@@ -1,8 +1,18 @@
-// randomly select 'rock', 'paper' or 'scissors'
 function getComputerChoice() {
     let computerOptions = ['rock', 'paper', 'scissors'];
     let randomNumber = Math.floor(Math.random() * 2);
-    return computerOptions[randomNumber];
+    let computerChoice = computerOptions[randomNumber];
+
+    return computerChoice;
 }
 
-console.log(getComputerChoice());
+function getPlayerChoice() {
+    let playerChoice = prompt('Please select "rock," "paper" or "scissors" to start the game!', 'rock, paper or scissors');
+
+    return playerChoice;
+}
+
+let computerSelection = getComputerChoice();
+let playerSelection = getPlayerChoice();
+
+console.log(computerSelection, playerSelection);
