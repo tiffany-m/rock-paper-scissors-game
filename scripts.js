@@ -1,4 +1,6 @@
 // set counter variables
+let computerSelection = "";
+let playerSelection = "";
 let computerPoints = 0;
 let playerPoints = 0;
 let round = 1;
@@ -41,20 +43,20 @@ function playRound(computer, player) {
 // play 5 round game
 function game() {
     // set variables
-    let computerSelection = getComputerChoice();
-    let playerSelection = getPlayerChoice();
+
 
     for (let i = 0; i < 5; i++) {
-        console.log(`-------------- ROUND ${round} --------------
-        \n“Rock, paper, scissors, shoot!”
-        \nComputer Choice: ${computerSelection}, Player Choice: ${playerSelection}`)
-
-        // play one round
-        playRound(computerSelection, playerSelection);
 
         // new choices for next round
         computerSelection = getComputerChoice();
         playerSelection = getPlayerChoice();
+
+        console.log(`-------------- ROUND ${round} --------------
+        \n“Rock, paper, scissors, shoot!”
+        \nComputer Choice: ${computerSelection}, Player Choice: ${playerSelection}`)
+        
+        // play one round
+        playRound(computerSelection, playerSelection);
 
         round++;
     }
