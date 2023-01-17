@@ -47,7 +47,7 @@ function game() {
 
     for (let i = 0; i < 5; i++) {
 
-        // new choices for next round
+        // choices for current round
         computerSelection = getComputerChoice();
         playerSelection = getPlayerChoice();
 
