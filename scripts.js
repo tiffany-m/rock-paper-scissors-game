@@ -51,6 +51,36 @@ function playRound(computer, player) {
         computerPointsText.textContent = `Computer: ${computerPoints}`;
         playerPointsText.textContent = `Player: ${playerPoints}`;
     }
+
+    if(computerPoints === 5 || playerPoints === 5) {
+        choiceBtns.forEach(button => button.remove());
+
+        const reset = document.createElement('button');
+        reset.innerHTML = "Reset Game";
+        reset.setAttribute('id', 'btn-reset');
+        document.body.appendChild(reset);
+
+        if(computerPoints === 5) {
+            resultText.textContent = `THE COMPUTER HAS WON!`
+        } else {
+            resultText.textContent = `YOU HAVE WON!`
+        }
+
+        reset.addEventListener('click', () => {
+            playerChoice = "";
+            computerChoice = "";
+            computerPoints = 0;
+            playerPoints = 0;
+
+            resultText.textContent = `Result: `;
+            pointsText.textContent = `Current Score:`;
+            computerPointsText.textContent = `Computer: ${computerPoints}`;
+            playerPointsText.textContent = `Player: ${playerPoints}`;
+
+            reset.remove();
+            choiceBtns.forEach(button => document.body.appendChild(button));
+        })
+    }
 }
 
 // play game
