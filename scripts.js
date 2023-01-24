@@ -1,4 +1,3 @@
-// DOM variables
 const computerText = document.getElementById('computer-choice');
 const playerText = document.getElementById('player-choice');
 const resultText = document.getElementById('result');
@@ -6,21 +5,17 @@ const choiceBtns = document.querySelectorAll('.btn-choice');
 const pointsText = document.getElementById('points-text')
 const computerPointsText = document.getElementById('computer-points-text')
 const playerPointsText = document.getElementById('player-points-text')
-
-// set variables
 let playerChoice = "";
 let computerChoice = "";
 let computerPoints = 0;
 let playerPoints = 0;
 
-// buttons for player choice
 choiceBtns.forEach(button => button.addEventListener('click', () => {
     playerChoice = button.textContent;
 
     getComputerChoice();
 }))
 
-// get computer choice
 function getComputerChoice() {
     let computerOptions = ['Rock', 'Paper', 'Scissors'];
     let randomNumber = Math.floor(Math.random() * computerOptions.length);
@@ -29,7 +24,6 @@ function getComputerChoice() {
     game();
 }
 
-// play one round of game by comparing choices of computer and player
 function playRound(computer, player) {
     if (computer == player) {
         computerPoints++;
@@ -71,11 +65,12 @@ function playRound(computer, player) {
             computerChoice = "";
             computerPoints = 0;
             playerPoints = 0;
-
-            resultText.textContent = `Result: `;
+            computerText.textContent = `Computer Choice:`;
+            playerText.textContent = `Player Choice:`;
+            resultText.textContent = `Result:`;
             pointsText.textContent = `Current Score:`;
-            computerPointsText.textContent = `Computer: ${computerPoints}`;
-            playerPointsText.textContent = `Player: ${playerPoints}`;
+            computerPointsText.textContent = `Computer: 0`;
+            playerPointsText.textContent = `Player: 0`;
 
             reset.remove();
             choiceBtns.forEach(button => document.body.appendChild(button));
@@ -83,11 +78,9 @@ function playRound(computer, player) {
     }
 }
 
-// play game
 function game() {
     computerText.textContent = `Computer Choice: ${computerChoice}`;
     playerText.textContent = `Player Choice: ${playerChoice}`;
     
-    // play one round
     playRound(computerChoice, playerChoice);
 }
