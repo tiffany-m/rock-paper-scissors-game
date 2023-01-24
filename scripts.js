@@ -37,7 +37,7 @@ function playRound(computer, player) {
     } else if (computer == "Rock" && player === "Scissors" || computer === "Scissors" && player === "Paper" || computer === "Paper" && player === "Rock") {
         computerPoints++;
         resultText.textConent = `You lose! ${computer} beats ${player}!`;
-        pointsText.textContent = `1 Point for Computer`;
+        pointsText.textContent = `1 Point for the Computer`;
         computerPointsText.textContent = `${computerPoints}`;
         playerPointsText.textContent = `${playerPoints}`;
     } else {
@@ -59,7 +59,7 @@ function playRound(computer, player) {
         if(computerPoints === 5) {
             resultText.textContent = `THE COMPUTER HAS WON!`
         } else {
-            resultText.textContent = `YOU HAVE WON!`
+            resultText.textContent = `CONGRATULATION, YOU HAVE WON!`
         }
 
         reset.addEventListener('click', resetGame);
@@ -91,8 +91,8 @@ function game() {
 }
 
 function resetGame() {
-    playerChoice = "";
-    computerChoice = "";
+    playerChoice = "&nbsp";
+    computerChoice = "&nbsp";
     computerPoints = 0;
     playerPoints = 0;
     computerText.textContent = `Computer Choice:`;
