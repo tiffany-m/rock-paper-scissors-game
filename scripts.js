@@ -95,8 +95,6 @@ function resetGame() {
     computerChoice = "&nbsp";
     computerPoints = 0;
     playerPoints = 0;
-    computerText.textContent = `Computer Choice:`;
-    playerText.textContent = `Player Choice:`;
     resultText.textContent = `Result:`;
     pointsText.textContent = `Current Score:`;
     computerPointsText.textContent = `Computer: 0`;
