@@ -63,8 +63,8 @@ function playRound(computer, player) {
         }
 
         function resetGame() {
-            playerOption.textContent = `&nbsp`;
-            computerOption.textContent = `&nbsp`;
+            playerOption.innerHTML = `</br>`;
+            computerOption.innerHTML = `</br>`;
             computerPoints = 0;
             playerPoints = 0;
             resultText.textContent = "First one to 5 Points wins the game!";
