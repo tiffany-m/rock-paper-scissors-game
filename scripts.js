@@ -1,24 +1,24 @@
-const startBtn = document.getElementById('btn-start')
 const screens = document.querySelectorAll('.screen');
+const startBtn = document.getElementById('btn-start')
+const playerOptionsContainer = document.getElementById('player-options-container');
+const choiceBtns = document.querySelectorAll('.btn-choice');
 const computerOption = document.getElementById('computer-choice');
 const playerOption = document.getElementById('player-choice');
-const resultText = document.getElementById('result');
-const choiceBtns = document.querySelectorAll('.btn-choice');
-const pointsText = document.getElementById('points-text')
-const computerPointsText = document.getElementById('computer-points-text')
-const playerPointsText = document.getElementById('player-points-text')
-const resetContainer = document.getElementById('reset-container')
-const playerOptionsContainer = document.getElementById('player-options-container')
+const resultText = document.getElementById('result-text');
+const pointsText = document.getElementById('points-text');
+const computerPointsText = document.getElementById('computer-points-text');
+const playerPointsText = document.getElementById('player-points-text');
 let playerChoice = "";
 let computerChoice = "";
 let computerPoints = 0;
 let playerPoints = 0;
 
-// start button transitions to next screen and starts game
+// transitions to next screen where game is played
 startBtn.addEventListener('click', () => {
     screens[0].classList.add('up');
 })
 
+// these buttons are for the player to chose an option
 choiceBtns.forEach(button => button.addEventListener('click', () => {
     playerChoice = button.textContent;
 
@@ -31,6 +31,29 @@ function getComputerChoice() {
     computerChoice = computerOptions[randomNumber];
     
     game();
+}
+
+function game() {
+    computerOption.textContent = `${computerChoice.toUpperCase()}`;
+    playerOption.textContent = `${playerChoice.toUpperCase()}`;
+
+    switch (computerOption.textContent) {
+        case "ROCK": computerOption.style.color = "#FF52AB";
+            break;
+        case "PAPER": computerOption.style.color = "#FBBC00";
+            break;
+        case "SCISSORS": computerOption.style.color = "#04CAE4";
+    }
+
+    switch (playerOption.textContent) {
+        case "ROCK": playerOption.style.color = "#FF52AB";
+            break;
+        case "PAPER": playerOption.style.color = "#FBBC00";
+            break;
+        case "SCISSORS": playerOption.style.color = "#04CAE4";
+    }
+
+    playRound(computerChoice, playerChoice);
 }
 
 function playRound(computer, player) {
@@ -85,28 +108,4 @@ function playRound(computer, player) {
 
         reset.addEventListener('click', resetGame);
     }
-}
-
-function game() {
-    computerOption.textContent = `${computerChoice.toUpperCase()}`;
-    playerOption.textContent = `${playerChoice.toUpperCase()}`;
-
-    switch (computerOption.textContent) {
-        case "ROCK": computerOption.style.color = "#FF52AB";
-            break;
-        case "PAPER": computerOption.style.color = "#FBBC00";
-            break;
-        case "SCISSORS": computerOption.style.color = "#04CAE4";
-    }
-
-    switch (playerOption.textContent) {
-        case "ROCK": playerOption.style.color = "#FF52AB";
-            break;
-        case "PAPER": playerOption.style.color = "#FBBC00";
-            break;
-        case "SCISSORS": playerOption.style.color = "#04CAE4";
-    }
-    
-
-    playRound(computerChoice, playerChoice);
 }
