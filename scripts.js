@@ -79,8 +79,8 @@ function playRound(computer, player) {
 }
 
 function game() {
-    computerOption.src = `images/${computerChoice}.png`;
-    playerOption.src = `images/${playerChoice}.png`;
+    computerOption.textContent = `${computerChoice.toUpperCase()}`;
+    playerOption.textContent = `${playerChoice.toUpperCase()}`;
     
     playRound(computerChoice, playerChoice);
 }
