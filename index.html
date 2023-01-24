@@ -8,7 +8,23 @@
     <title>Rock Paper Scissors Game</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors Game</h1>
+    <div class="game-board screen">
+        <div class="title">
+            <span class="rock-text">ROCK </span><span class="paper-text">PAPER </span><span class="scissors-text">SCISSORS!</span>
+        </div>
+
+        <div class="game-info">
+            <h1 class="game-text" id="computer-choice">Computer Choice: </h1>
+            <h1 class="game-text" id="player-choice">Player Choice: </h1>
+            <h1 class="game-text" id="results">Results: </h1>
+        </div>
+        
+        <div class="player-options">
+            <button class="btn-choice" id="rock-choice">Rock</button>
+            <button class="btn-choice" id="paper-choice">Paper</button>
+            <button class="btn-choice" id="scissors-choice">Scissors</button>
+        </div>
+    </div>
 
     <script src="scripts.js"></script>
 </body>
