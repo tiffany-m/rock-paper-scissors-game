@@ -54,12 +54,26 @@ function playRound(computer, player) {
         const reset = document.createElement('button');
         reset.innerHTML = "Reset Game";
         reset.setAttribute('id', 'btn-reset');
-        resetContainer.appendChild(reset);
+        playerOptionsContainer.appendChild(reset);
 
         if(computerPoints === 5) {
             resultText.textContent = `THE COMPUTER HAS WON!`
         } else {
             resultText.textContent = `CONGRATULATION, YOU HAVE WON!`
+        }
+
+        function resetGame() {
+            playerOption.textContent = `&nbsp`;
+            computerOption.textContent = `&nbsp`;
+            computerPoints = 0;
+            playerPoints = 0;
+            resultText.textContent = "First one to 5 Points wins the game!";
+            pointsText.textContent = "Rock, paper, scissors, shoot!";
+            computerPointsText.textContent = "0";
+            playerPointsText.textContent = "0";
+
+            reset.remove();
+            choiceBtns.forEach(button => playerOptionsContainer.appendChild(button));
         }
 
         reset.addEventListener('click', resetGame);
@@ -88,18 +102,4 @@ function game() {
     
 
     playRound(computerChoice, playerChoice);
-}
-
-function resetGame() {
-    playerChoice = "&nbsp";
-    computerChoice = "&nbsp";
-    computerPoints = 0;
-    playerPoints = 0;
-    resultText.textContent = `Result:`;
-    pointsText.textContent = `Current Score:`;
-    computerPointsText.textContent = `Computer: 0`;
-    playerPointsText.textContent = `Player: 0`;
-
-    reset.remove();
-    choiceBtns.forEach(button => playerOptionsContainer.appendChild(button));
 }
