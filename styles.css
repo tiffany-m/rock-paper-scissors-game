@@ -37,7 +37,7 @@
 #scissors-text { color: #04CAE4; }
 
 /* Buttons ------------------ */
-.btn-choice {
+.btn-choice, #btn-reset {
     font-size: 16px;
     font-weight: bold;
     padding: 6px 16px;
@@ -49,6 +49,7 @@
 #btn-rock { background-color: #FF52AB; }
 #btn-paper { background-color: #FBBC00; }
 #btn-scissors { background-color: #04CAE4;}
+#btn-reset {background-color: #E0E1E2;}
 
 button:active {
     transform: scale(0.98);

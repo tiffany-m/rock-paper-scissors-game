@@ -5,6 +5,8 @@ const choiceBtns = document.querySelectorAll('.btn-choice');
 const pointsText = document.getElementById('points-text')
 const computerPointsText = document.getElementById('computer-points-text')
 const playerPointsText = document.getElementById('player-points-text')
+const resetContainer = document.getElementById('reset-container')
+const playerOptionsContainer = document.getElementById('player-options-container')
 let playerChoice = "";
 let computerChoice = "";
 let computerPoints = 0;
@@ -52,7 +54,7 @@ function playRound(computer, player) {
         const reset = document.createElement('button');
         reset.innerHTML = "Reset Game";
         reset.setAttribute('id', 'btn-reset');
-        document.body.appendChild(reset);
+        resetContainer.appendChild(reset);
 
         if(computerPoints === 5) {
             resultText.textContent = `THE COMPUTER HAS WON!`
@@ -60,21 +62,7 @@ function playRound(computer, player) {
             resultText.textContent = `YOU HAVE WON!`
         }
 
-        reset.addEventListener('click', () => {
-            playerChoice = "";
-            computerChoice = "";
-            computerPoints = 0;
-            playerPoints = 0;
-            computerText.textContent = `Computer Choice:`;
-            playerText.textContent = `Player Choice:`;
-            resultText.textContent = `Result:`;
-            pointsText.textContent = `Current Score:`;
-            computerPointsText.textContent = `Computer: 0`;
-            playerPointsText.textContent = `Player: 0`;
-
-            reset.remove();
-            choiceBtns.forEach(button => document.body.appendChild(button));
-        })
+        reset.addEventListener('click', resetGame);
     }
 }
 
@@ -83,4 +71,20 @@ function game() {
     playerOption.textContent = `${playerChoice.toUpperCase()}`;
     
     playRound(computerChoice, playerChoice);
+}
+
+function resetGame() {
+    playerChoice = "";
+    computerChoice = "";
+    computerPoints = 0;
+    playerPoints = 0;
+    computerText.textContent = `Computer Choice:`;
+    playerText.textContent = `Player Choice:`;
+    resultText.textContent = `Result:`;
+    pointsText.textContent = `Current Score:`;
+    computerPointsText.textContent = `Computer: 0`;
+    playerPointsText.textContent = `Player: 0`;
+
+    reset.remove();
+    choiceBtns.forEach(button => playerOptionsContainer.appendChild(button));
 }
