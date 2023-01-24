@@ -69,22 +69,23 @@ function playRound(computer, player) {
 function game() {
     computerOption.textContent = `${computerChoice.toUpperCase()}`;
     playerOption.textContent = `${playerChoice.toUpperCase()}`;
-    
-    if(computerOption.textContent === "ROCK") {
-        computerOption.style.color = "#FF52AB";
-    } else if (computerOption.textContent === "PAPER"){
-        computerOption.style.color = "#FBBC00";
-    } else {
-        computerOption.style.color = "#04CAE4";
+
+    switch (computerOption.textContent) {
+        case "ROCK": computerOption.style.color = "#FF52AB";
+            break;
+        case "PAPER": computerOption.style.color = "#FBBC00";
+            break;
+        case "SCISSORS": computerOption.style.color = "#04CAE4";
     }
 
-    if (playerOption.textContent === "ROCK") {
-        playerOption.style.color = "#FF52AB";
-    } else if (playerOption.textContent === "PAPER") {
-        playerOption.style.color = "#FBBC00";
-    } else {
-        playerOption.style.color = "#04CAE4";
+    switch (playerOption.textContent) {
+        case "ROCK": playerOption.style.color = "#FF52AB";
+            break;
+        case "PAPER": playerOption.style.color = "#FBBC00";
+            break;
+        case "SCISSORS": playerOption.style.color = "#04CAE4";
     }
+    
 
     playRound(computerChoice, playerChoice);
 }
