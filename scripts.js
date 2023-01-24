@@ -1,5 +1,5 @@
-const computerText = document.getElementById('computer-choice');
-const playerText = document.getElementById('player-choice');
+const computerOption = document.getElementById('computer-choice');
+const playerOption = document.getElementById('player-choice');
 const resultText = document.getElementById('result');
 const choiceBtns = document.querySelectorAll('.btn-choice');
 const pointsText = document.getElementById('points-text')
@@ -28,22 +28,22 @@ function playRound(computer, player) {
     if (computer == player) {
         computerPoints++;
         playerPoints++;
-        resultText.textContent = `Result: It's a tie! You both chose ${computer}!`;
-        pointsText.textContent = `Points for each of you! Current Score:`;
-        computerPointsText.textContent = `Computer: ${computerPoints}`;
-        playerPointsText.textContent = `Player: ${playerPoints}`;
+        resultText.textContent = `It's a tie! You both chose ${computer}!`;
+        pointsText.textContent = `Points for each of you!`;
+        computerPointsText.textContent = `${computerPoints}`;
+        playerPointsText.textContent = `${playerPoints}`;
     } else if (computer == "Rock" && player === "Scissors" || computer === "Scissors" && player === "Paper" || computer === "Paper" && player === "Rock") {
         computerPoints++;
-        resultText.textConent = `Result: You lose! ${computer} beats ${player}!`;
-        pointsText.textContent = `Current Score:`;
-        computerPointsText.textContent = `Computer: ${computerPoints}`;
-        playerPointsText.textContent = `Player: ${playerPoints}`;
+        resultText.textConent = `You lose! ${computer} beats ${player}!`;
+        pointsText.textContent = `1 Point for Computer`;
+        computerPointsText.textContent = `${computerPoints}`;
+        playerPointsText.textContent = `${playerPoints}`;
     } else {
         playerPoints++;
-        resultText.textContent = `Result: You Win! ${player} beats ${computer}!`;
-        pointsText.textContent = `Current Score:`;
-        computerPointsText.textContent = `Computer: ${computerPoints}`;
-        playerPointsText.textContent = `Player: ${playerPoints}`;
+        resultText.textContent = `You Win! ${player} beats ${computer}!`;
+        pointsText.textContent = `1 Point for Player`;
+        computerPointsText.textContent = `${computerPoints}`;
+        playerPointsText.textContent = `${playerPoints}`;
     }
 
     if(computerPoints === 5 || playerPoints === 5) {
@@ -79,8 +79,8 @@ function playRound(computer, player) {
 }
 
 function game() {
-    computerText.textContent = `Computer Choice: ${computerChoice}`;
-    playerText.textContent = `Player Choice: ${playerChoice}`;
+    computerOption.src = `images/${computerChoice}.png`;
+    playerOption.src = `images/${playerChoice}.png`;
     
     playRound(computerChoice, playerChoice);
 }

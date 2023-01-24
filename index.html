@@ -9,21 +9,28 @@
 </head>
 <body>
     <div class="game-board screen">
-        <img src="images/characters.png" />
+        <img id="characters" src="images/characters.png" />
         <div class="title">
             <span id="rock-text">ROCK </span><span id="paper-text">PAPER </span><span id="scissors-text">SCISSORS!</span>
         </div>
 
-        <div class="game-info">
-            <h1 class="game-text" id="computer-choice">Computer Choice:</h1>
-            <h1 class="game-text" id="player-choice">Player Choice:</h1>
-            <h1 class="game-text" id="result">Result:</h1>
-        </div>
-
-        <div class="points">
-            <h2 id="points-text">First one to 5 Points wins the game!</h2>
-            <h2 id="computer-points-text">Computer Points:</h2>
-            <h2 id="player-points-text">Player Points:</h2>
+        <h1 class="game-text" id="result"></h1>
+        <h2 id="points-text">First one to 5 Points wins the game!</h2>
+        
+        <div id="game-info">
+            <div class="computer-info">
+                <div class="game-text">Computer</div>
+                <img id="computer-choice" src="" />
+                <div>POINTS</div>
+                <div id="computer-points-text"></div>
+            </div>
+            <div id="vs">vs</div>
+            <div class="player-info">
+                <div class="game-text">Player</div>
+                <img id="player-choice" src=""/>
+                <div>POINTS</div>
+                <div id="player-points-text"></div>
+            </div>
         </div>
         
         <div class="player-options">

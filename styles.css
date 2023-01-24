@@ -7,6 +7,7 @@
 .screen {
     display: flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -15,7 +16,7 @@
 
 /* GAME BOARD SCREEN -------------------------------------------------------------------------------------*/
 /* Image ---------------------- */
-img {
+#characters {
     height: auto;
     width: 300px;
     margin-bottom: 10px;
@@ -52,4 +53,18 @@ button:active {
 
 button:focus {
     outline: 0;
+}
+
+/* Computer/Player Choices ------------------ */
+#computer-choice, #player-choice {
+    max-height: 90px;
+    max-width: 60px;
+    height: auto;
+    width: 60px;
+}
+
+#game-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
