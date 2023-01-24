@@ -3,6 +3,9 @@ const computerText = document.getElementById('computer-choice');
 const playerText = document.getElementById('player-choice');
 const resultText = document.getElementById('result');
 const choiceBtns = document.querySelectorAll('.btn-choice');
+const pointsText = document.getElementById('points-text')
+const computerPointsText = document.getElementById('computer-points-text')
+const playerPointsText = document.getElementById('player-points-text')
 
 // set variables
 let playerChoice = "";
@@ -31,13 +34,22 @@ function playRound(computer, player) {
     if (computer == player) {
         computerPoints++;
         playerPoints++;
-        resultText.textContent = `Result: It's a tie! You both chose ${computer}! Points for each of you!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
+        resultText.textContent = `Result: It's a tie! You both chose ${computer}!`;
+        pointsText.textContent = `Points for each of you! Current Score:`;
+        computerPointsText.textContent = `Computer: ${computerPoints}`;
+        playerPointsText.textContent = `Player: ${playerPoints}`;
     } else if (computer == "Rock" && player === "Scissors" || computer === "Scissors" && player === "Paper" || computer === "Paper" && player === "Rock") {
         computerPoints++;
-        resultText.textConent = `Result: You lose! ${computer} beats ${player}!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
+        resultText.textConent = `Result: You lose! ${computer} beats ${player}!`;
+        pointsText.textContent = `Current Score:`;
+        computerPointsText.textContent = `Computer: ${computerPoints}`;
+        playerPointsText.textContent = `Player: ${playerPoints}`;
     } else {
         playerPoints++;
-        resultText.textContent = `Result: You Win! ${player} beats ${computer}!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
+        resultText.textContent = `Result: You Win! ${player} beats ${computer}!`;
+        pointsText.textContent = `Current Score:`;
+        computerPointsText.textContent = `Computer: ${computerPoints}`;
+        playerPointsText.textContent = `Player: ${playerPoints}`;
     }
 }
 
