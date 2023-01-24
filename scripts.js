@@ -26,28 +26,25 @@ function getComputerChoice() {
     game();
 }
 
-
-
-
 // play one round of game by comparing choices of computer and player
 function playRound(computer, player) {
     if (computer == player) {
         computerPoints++;
         playerPoints++;
-        return console.log(`It's a tie! You both chose ${computer}! Points for each of you!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`);
+        resultText.textContent = `It's a tie! You both chose ${computer}! Points for each of you!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
     } else if (computer == "Rock" && player === "Scissors" || computer === "Scissors" && player === "Paper" || computer === "Paper" && player === "Rock") {
         computerPoints++;
-        return console.log(`You lose! ${computer} beats ${player}!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`);
+        resultText.textConent = `You lose! ${computer} beats ${player}!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
     } else {
         playerPoints++;
-        return console.log(`You Win! ${player} beats ${computer}!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`);
+        resultText.textContent = `Result: You Win! ${player} beats ${computer}!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
     }
 }
 
 // play game
 function game() {
-    console.log(`"Rock, paper, scissors, shoot!”
-    \nComputer Choice: ${computerChoice}, Player Choice: ${playerChoice}`)
+    computerText.textContent = `Computer Choice: ${computerChoice}`;
+    playerText.textContent = `Player Choice: ${playerChoice}`;
     
     // play one round
     playRound(computerChoice, playerChoice);
