@@ -3,7 +3,6 @@ let computerSelection = "";
 let playerSelection = "";
 let computerPoints = 0;
 let playerPoints = 0;
-let round = 1;
 
 // get computer choice
 function getComputerChoice() {
@@ -40,32 +39,18 @@ function playRound(computer, player) {
     }
 }
 
-// play 5 round game
+// play game
 function game() {
-    // set variables
-
-
     for (let i = 0; i < 5; i++) {
 
         // choices for current round
         computerSelection = getComputerChoice();
         playerSelection = getPlayerChoice();
 
-        console.log(`-------------- ROUND ${round} --------------
-        \n“Rock, paper, scissors, shoot!”
+        console.log(`"Rock, paper, scissors, shoot!”
         \nComputer Choice: ${computerSelection}, Player Choice: ${playerSelection}`)
         
         // play one round
         playRound(computerSelection, playerSelection);
-
-        round++;
-    }
-
-    if (computerPoints == playerPoints) {
-        return console.log(`The 5 round game was a tie! You both have ${computerPoints} points`);
-    } else if (computerPoints > playerPoints) {
-        return console.log(`The computer has won this 5 round game!\nFinal Score: Computer ${computerPoints} / Player ${playerPoints}`);
-    } else {
-        return console.log(`You have won this 5 round game!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`);
     }
 }
