@@ -1,3 +1,5 @@
+const startBtn = document.getElementById('btn-start')
+const screens = document.querySelectorAll('.screen');
 const computerOption = document.getElementById('computer-choice');
 const playerOption = document.getElementById('player-choice');
 const resultText = document.getElementById('result');
@@ -11,6 +13,12 @@ let playerChoice = "";
 let computerChoice = "";
 let computerPoints = 0;
 let playerPoints = 0;
+
+// start button transitions to next screen and starts game
+startBtn.addEventListener('click', () => {
+    screens[0].classList.add('up');
+    game();
+})
 
 choiceBtns.forEach(button => button.addEventListener('click', () => {
     playerChoice = button.textContent;
