@@ -1,28 +1,33 @@
-// set counter variables
-let computerSelection = "";
-let playerSelection = "";
+// DOM variables
+const computerText = document.getElementById('computer-choice');
+const playerText = document.getElementById('player-choice');
+const resultText = document.getElementById('result');
+const choiceBtns = document.querySelectorAll('.btn-choice');
+
+// set variables
+let playerChoice = "";
+let computerChoice = "";
 let computerPoints = 0;
 let playerPoints = 0;
+
+// buttons for player choice
+choiceBtns.forEach(button => button.addEventListener('click', () => {
+    playerChoice = button.textContent;
+
+    getComputerChoice();
+}))
 
 // get computer choice
 function getComputerChoice() {
     let computerOptions = ['Rock', 'Paper', 'Scissors'];
     let randomNumber = Math.floor(Math.random() * computerOptions.length);
-    let computerChoice = computerOptions[randomNumber];
-
-    return computerChoice;
+    computerChoice = computerOptions[randomNumber];
+    
+    game();
 }
 
-// get player choice
-function getPlayerChoice() {
-    let playerChoiceStr = prompt('Please select "rock," "paper" or "scissors" to start the game!');
-    // fix/make sure input for player has correct format
-    let toUpper = playerChoiceStr.charAt(0).toUpperCase();
-    let toLower = playerChoiceStr.slice(1).toLowerCase();
-    let playerChoice = toUpper + toLower;
 
-    return playerChoice;
-}
+
 
 // play one round of game by comparing choices of computer and player
 function playRound(computer, player) {
@@ -41,16 +46,9 @@ function playRound(computer, player) {
 
 // play game
 function game() {
-    for (let i = 0; i < 5; i++) {
-
-        // choices for current round
-        computerSelection = getComputerChoice();
-        playerSelection = getPlayerChoice();
-
-        console.log(`"Rock, paper, scissors, shoot!”
-        \nComputer Choice: ${computerSelection}, Player Choice: ${playerSelection}`)
-        
-        // play one round
-        playRound(computerSelection, playerSelection);
-    }
+    console.log(`"Rock, paper, scissors, shoot!”
+    \nComputer Choice: ${computerChoice}, Player Choice: ${playerChoice}`)
+    
+    // play one round
+    playRound(computerChoice, playerChoice);
 }
