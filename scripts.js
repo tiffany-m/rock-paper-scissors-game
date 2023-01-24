@@ -31,10 +31,10 @@ function playRound(computer, player) {
     if (computer == player) {
         computerPoints++;
         playerPoints++;
-        resultText.textContent = `It's a tie! You both chose ${computer}! Points for each of you!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
+        resultText.textContent = `Result: It's a tie! You both chose ${computer}! Points for each of you!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
     } else if (computer == "Rock" && player === "Scissors" || computer === "Scissors" && player === "Paper" || computer === "Paper" && player === "Rock") {
         computerPoints++;
-        resultText.textConent = `You lose! ${computer} beats ${player}!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
+        resultText.textConent = `Result: You lose! ${computer} beats ${player}!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
     } else {
         playerPoints++;
         resultText.textContent = `Result: You Win! ${player} beats ${computer}!\nCurrent Score: Computer ${computerPoints} / Player ${playerPoints}`;
