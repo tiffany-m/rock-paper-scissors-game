@@ -34,14 +34,14 @@ function getComputerChoice() {
 }
 
 function playRound(computer, player) {
-    if (computer == player) {
+    if (computer === player) {
         computerPoints++;
         playerPoints++;
         resultText.textContent = `It's a tie! You both chose ${computer}!`;
-        pointsText.textContent = `Points for each of you!`;
+        pointsText.textContent = `Points for both of you!`;
         computerPointsText.textContent = `${computerPoints}`;
         playerPointsText.textContent = `${playerPoints}`;
-    } else if (computer == "Rock" && player === "Scissors" || computer === "Scissors" && player === "Paper" || computer === "Paper" && player === "Rock") {
+    } else if (computer === "Scissors" && player === "Paper" || computer === "Paper" && player === "Rock" || computer === "Rock" && player === "Scissors") {
         computerPoints++;
         resultText.textConent = `You lose! ${computer} beats ${player}!`;
         pointsText.textContent = `1 Point for the Computer`;
