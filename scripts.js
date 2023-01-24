@@ -17,7 +17,6 @@ let playerPoints = 0;
 // start button transitions to next screen and starts game
 startBtn.addEventListener('click', () => {
     screens[0].classList.add('up');
-    game();
 })
 
 choiceBtns.forEach(button => button.addEventListener('click', () => {
