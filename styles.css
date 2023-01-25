@@ -17,7 +17,7 @@
     transition: margin .5s ease-out;
 }
 
-.screen.up {
+.screen.move-up {
     margin-top: -100vh;
 }
 
@@ -27,8 +27,8 @@ img {
     margin-bottom: 10px;
 }
 
-#computer-choice,
-#player-choice {
+#computer-choice-gameboard,
+#player-choice-gameboard {
     font-size: 12;
     font-weight: bold;
     margin: 10px 0 10px 0;
@@ -40,6 +40,9 @@ img {
     align-items: center;
     gap: 30px;
     margin-bottom: 20px;
+}
+.player-info{
+    padding: 0 20px;
 }
 
 #results-container {
@@ -59,7 +62,7 @@ img {
 
 /* Buttons ------------------ */
 #btn-start, 
-.btn-choice, 
+.btn-player-choice, 
 #btn-reset {
     font-size: 16px;
     font-weight: bold;

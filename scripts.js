@@ -1,9 +1,9 @@
 const screens = document.querySelectorAll('.screen');
-const startBtn = document.getElementById('btn-start')
+const startBtn = document.getElementById('btn-start');
+const playerChoiceBtns = document.querySelectorAll('.btn-player-choice');
 const playerOptionsContainer = document.getElementById('player-options-container');
-const choiceBtns = document.querySelectorAll('.btn-choice');
-const computerOption = document.getElementById('computer-choice');
-const playerOption = document.getElementById('player-choice');
+const computerChoiceShownOnGameBoard = document.getElementById('computer-choice-gameboard');
+const playerChoiceShownOnGameBoard = document.getElementById('player-choice-gameboard');
 const resultText = document.getElementById('result-text');
 const pointsText = document.getElementById('points-text');
 const computerPointsText = document.getElementById('computer-points-text');
@@ -13,13 +13,13 @@ let computerChoice = "";
 let computerPoints = 0;
 let playerPoints = 0;
 
-// transitions to next screen where game is played
+// transitions to next screen, "game board", where game is played
 startBtn.addEventListener('click', () => {
-    screens[0].classList.add('up');
+    screens[0].classList.add('move-up');
 })
 
-// these buttons are for the player to chose an option
-choiceBtns.forEach(button => button.addEventListener('click', () => {
+// game starts once player choses an option
+playerChoiceBtns.forEach(button => button.addEventListener('click', () => {
     playerChoice = button.textContent;
 
     getComputerChoice();
@@ -30,27 +30,27 @@ function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * computerOptions.length);
     computerChoice = computerOptions[randomNumber];
     
-    game();
+    playGame();
 }
 
-function game() {
-    computerOption.textContent = `${computerChoice.toUpperCase()}`;
-    playerOption.textContent = `${playerChoice.toUpperCase()}`;
+function playGame() {
+    computerChoiceShownOnGameBoard.textContent = `${computerChoice.toUpperCase()}`;
+    playerChoiceShownOnGameBoard.textContent = `${playerChoice.toUpperCase()}`;
 
-    switch (computerOption.textContent) {
-        case "ROCK": computerOption.style.color = "#FF52AB";
+    switch (computerChoiceShownOnGameBoard.textContent) {
+        case "ROCK": computerChoiceShownOnGameBoard.style.color = "#FF52AB";
             break;
-        case "PAPER": computerOption.style.color = "#FBBC00";
+        case "PAPER": computerChoiceShownOnGameBoard.style.color = "#FBBC00";
             break;
-        case "SCISSORS": computerOption.style.color = "#04CAE4";
+        case "SCISSORS": computerChoiceShownOnGameBoard.style.color = "#04CAE4";
     }
 
-    switch (playerOption.textContent) {
-        case "ROCK": playerOption.style.color = "#FF52AB";
+    switch (playerChoiceShownOnGameBoard.textContent) {
+        case "ROCK": playerChoiceShownOnGameBoard.style.color = "#FF52AB";
             break;
-        case "PAPER": playerOption.style.color = "#FBBC00";
+        case "PAPER": playerChoiceShownOnGameBoard.style.color = "#FBBC00";
             break;
-        case "SCISSORS": playerOption.style.color = "#04CAE4";
+        case "SCISSORS": playerChoiceShownOnGameBoard.style.color = "#04CAE4";
     }
 
     playRound(computerChoice, playerChoice);
@@ -77,7 +77,7 @@ function playRound(computer, player) {
     }
 
     if(computerPoints === 5 || playerPoints === 5) {
-        choiceBtns.forEach(button => button.remove());
+        playerChoiceBtns.forEach(button => button.remove());
 
         const reset = document.createElement('button');
         reset.innerHTML = "Reset Game";
@@ -91,8 +91,8 @@ function playRound(computer, player) {
         }
 
         function resetGame() {
-            playerOption.innerHTML = `</br>`;
-            computerOption.innerHTML = `</br>`;
+            playerChoiceShownOnGameBoard.innerHTML = `</br>`;
+            computerChoiceShownOnGameBoard.innerHTML = `</br>`;
             computerPoints = 0;
             playerPoints = 0;
             resultText.textContent = "First one to 5 Points wins the game!";
@@ -101,7 +101,7 @@ function playRound(computer, player) {
             playerPointsText.textContent = "0";
 
             reset.remove();
-            choiceBtns.forEach(button => playerOptionsContainer.appendChild(button));
+            playerChoiceBtns.forEach(button => playerOptionsContainer.appendChild(button));
         }
 
         reset.addEventListener('click', resetGame);
