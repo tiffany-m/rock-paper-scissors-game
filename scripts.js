@@ -66,15 +66,13 @@ function playRound(computer, player) {
         playerPointsText.textContent = `${playerPoints}`;
     } else if (computer === "Scissors" && player === "Paper" || computer === "Paper" && player === "Rock" || computer === "Rock" && player === "Scissors") {
         computerPoints++;
-        resultText.textConent = `You lose! ${computer} beats ${player}!`;
+        resultText.textContent = `You lose! ${computer} beats ${player}!`;
         pointsText.textContent = `1 Point for the Computer`;
         computerPointsText.textContent = `${computerPoints}`;
-        playerPointsText.textContent = `${playerPoints}`;
     } else {
         playerPoints++;
         resultText.textContent = `You Win! ${player} beats ${computer}!`;
         pointsText.textContent = `1 Point for Player`;
-        computerPointsText.textContent = `${computerPoints}`;
         playerPointsText.textContent = `${playerPoints}`;
     }
 
