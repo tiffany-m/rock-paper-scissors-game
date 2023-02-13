@@ -80,7 +80,7 @@ function playRound(computer, player) {
         playerChoiceBtns.forEach(button => button.remove());
 
         const reset = document.createElement('button');
-        reset.innerHTML = "Reset Game";
+        reset.textContent = "Reset Game";
         reset.setAttribute('id', 'btn-reset');
         playerOptionsContainer.appendChild(reset);
 
