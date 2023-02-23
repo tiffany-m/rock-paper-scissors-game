@@ -1,32 +1,32 @@
-const screens = document.querySelectorAll('.screen');
-const startBtn = document.getElementById('btn-start');
-const playerChoiceBtns = document.querySelectorAll('.btn-player-choice');
-const playerOptionsContainer = document.getElementById('player-options-container');
-const computerChoiceShownOnGameBoard = document.getElementById('computer-choice-gameboard');
-const playerChoiceShownOnGameBoard = document.getElementById('player-choice-gameboard');
-const resultText = document.getElementById('result-text');
-const pointsText = document.getElementById('points-text');
-const computerPointsText = document.getElementById('computer-points-text');
-const playerPointsText = document.getElementById('player-points-text');
+const screens = document.querySelectorAll(".screen");
+const startBtn = document.getElementById("btn-start");
+const playerChoiceBtns = document.querySelectorAll(".btn-player-choice");
+const playerOptionsContainer = document.getElementById("player-options-container");
+const computerChoiceShownOnGameBoard = document.getElementById("computer-choice-gameboard");
+const playerChoiceShownOnGameBoard = document.getElementById("player-choice-gameboard");
+const resultText = document.getElementById("result-text");
+const pointsText = document.getElementById("points-text");
+const computerPointsText = document.getElementById("computer-points-text");
+const playerPointsText = document.getElementById("player-points-text");
 let playerChoice = "";
 let computerChoice = "";
 let computerPoints = 0;
 let playerPoints = 0;
 
 // transitions to next screen, "game board", where game is played
-startBtn.addEventListener('click', () => {
-    screens[0].classList.add('move-up');
+startBtn.addEventListener("click", () => {
+    screens[0].classList.add("move-up");
 })
 
 // game starts once player choses an option
-playerChoiceBtns.forEach(button => button.addEventListener('click', () => {
+playerChoiceBtns.forEach(button => button.addEventListener("click", () => {
     playerChoice = button.textContent;
 
     getComputerChoice();
 }))
 
 function getComputerChoice() {
-    let computerOptions = ['Rock', 'Paper', 'Scissors'];
+    let computerOptions = ["Rock", "Paper", "Scissors"];
     let randomNumber = Math.floor(Math.random() * computerOptions.length);
     computerChoice = computerOptions[randomNumber];
     
@@ -60,7 +60,7 @@ function playRound(computer, player) {
     if (computer === player) {
         computerPoints++;
         playerPoints++;
-        resultText.textContent = `It's a tie! You both chose ${computer}!`;
+        resultText.textContent = `It"s a tie! You both chose ${computer}!`;
         pointsText.textContent = `Points for both of you!`;
         computerPointsText.textContent = `${computerPoints}`;
         playerPointsText.textContent = `${playerPoints}`;
@@ -79,15 +79,15 @@ function playRound(computer, player) {
     if(computerPoints === 5 || playerPoints === 5) {
         playerChoiceBtns.forEach(button => button.remove());
 
-        const reset = document.createElement('button');
+        const reset = document.createElement("button");
         reset.textContent = "Reset Game";
-        reset.setAttribute('id', 'btn-reset');
+        reset.setAttribute("id", "btn-reset");
         playerOptionsContainer.appendChild(reset);
 
         if(computerPoints === 5) {
-            resultText.textContent = `THE COMPUTER HAS WON!`
+            resultText.textContent = `THE COMPUTER HAS WON!`;
         } else {
-            resultText.textContent = `CONGRATULATION, YOU HAVE WON!`
+            resultText.textContent = `CONGRATULATION, YOU HAVE WON!`;
         }
 
         function resetGame() {
@@ -104,6 +104,6 @@ function playRound(computer, player) {
             playerChoiceBtns.forEach(button => playerOptionsContainer.appendChild(button));
         }
 
-        reset.addEventListener('click', resetGame);
+        reset.addEventListener("click", resetGame);
     }
 }
